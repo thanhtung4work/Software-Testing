@@ -1,5 +1,4 @@
 
-from fractions import Fraction
 from math import gcd
 
 class MyFraction:
@@ -35,7 +34,7 @@ class MyFraction:
 
     def reduce(self):
         divider = gcd(self.numerator, self.denominator)
-        reduced = Fraction(self.numerator // divider, self.denominator // divider)
+        reduced = MyFraction(self.numerator // divider, self.denominator // divider)
         return reduced
 
     def __eq__(self, __o: object) -> bool:
