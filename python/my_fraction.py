@@ -1,3 +1,7 @@
+
+from fractions import Fraction
+from math import gcd
+
 class MyFraction:
     numerator = 1
     denominator = 1
@@ -29,19 +33,15 @@ class MyFraction:
         frac = MyFraction(frac.denominator, frac.numerator)
         return self.multiply(frac)
 
-    def normalize(self):
-        if(self.numerator % self.denominator == 0):
-            return MyFraction( int(self.numerator / self.denominator), 1 )
-        else:
-            return self
+    def reduce(self):
+        divider = gcd(self.numerator, self.denominator)
+        reduced = Fraction(self.numerator // divider, self.denominator // divider)
+        return reduced
 
     def __eq__(self, __o: object) -> bool:
-        if(self.numerator % __o.numerator == 0):
-            if(self.denominator % __o.denominator == 0):
-                return True
-        if(__o.numerator % self.numerator == 0):
-            if(__o.denominator % self.denominator == 0):
-                return True
+        y = self.numerator * __o.denominator - self.denominator * __o.numerator
+        if y == 0:
+            return True
         return False
     
     def __str__(self) -> str:
