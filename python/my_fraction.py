@@ -6,7 +6,13 @@ class MyFraction:
     denominator = 1
     def __init__(self, numerator, denominator):
         self.numerator = numerator
-        self.denominator = denominator
+        if(denominator < 0 ):
+            self.denominator = denominator * -1
+            self.numerator *= -1
+        elif(denominator == 0):
+            raise Exception("Denominator cannot be zero")
+        else:
+            self.denominator = denominator
 
     def add(self, frac):
         result = MyFraction(1, 1)

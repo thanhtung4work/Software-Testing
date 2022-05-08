@@ -1,31 +1,22 @@
 
 import unittest
 import my_fraction
+from python.my_fraction import MyFraction
 
 class TestMyFraction(unittest.TestCase):
     def test_add(self):
-        frac1 = my_fraction.MyFraction(2, 2)
-        frac2 = my_fraction.MyFraction(4, 2)
-        result = frac1.add( frac2 ).reduce()
-        self.assertEqual(result, my_fraction.MyFraction(3, 1))
+        self.assertEqual(MyFraction(1, 3).add(MyFraction(3, 5)), MyFraction(14, 15))
+        self.assertEqual(MyFraction(5, 9).add(MyFraction(11, 13)), MyFraction(164, 117))
     
     def test_substract(self):
-        frac1 = my_fraction.MyFraction(212, 2)
-        frac2 = my_fraction.MyFraction(111, 2)
-        result = frac1.substract( frac2 ).reduce()
-        self.assertEqual(result, my_fraction.MyFraction(101, 2))
+        self.assertEqual(MyFraction(11, 13).substract(MyFraction(13, 17)), MyFraction(18, 221))
+        self.assertEqual(MyFraction(7, 27).substract(MyFraction(2, 5)), MyFraction(19, -135))
 
     def test_multiply(self):
-        frac1 = my_fraction.MyFraction(3, 2)
-        frac2 = my_fraction.MyFraction(1, 2)
-        result = frac1.multiply(frac2).reduce()
-        self.assertEqual(result, my_fraction.MyFraction(3, 4))
+        self.assertEqual(MyFraction(6, 9).multiply(MyFraction(11, 13)), MyFraction(66, 117))
 
     def test_divide(self):
-        frac1 = my_fraction.MyFraction(3, 2)
-        frac2 = my_fraction.MyFraction(2, 2)
-        result = frac1.divide( frac2 ).reduce()
-        self.assertEqual(result, my_fraction.MyFraction(6, 4))
+        self.assertEqual(MyFraction(7, 13).divide(MyFraction(2,23)), MyFraction(161, 26))
 
 if __name__ == '__main__':
     unittest.main()
