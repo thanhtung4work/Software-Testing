@@ -4,13 +4,13 @@ from math import gcd
 class MyFraction:
     numerator = 1
     denominator = 1
-    def __init__(self, numerator, denominator):
+    def __init__(self, numerator: int, denominator: int):
         self.numerator = numerator
         if(denominator < 0 ):
             self.denominator = denominator * -1
             self.numerator *= -1
         elif(denominator == 0):
-            raise Exception("Denominator cannot be zero")
+            raise ValueError("Denominator cannot be zero")
         else:
             self.denominator = denominator
 
